@@ -1,0 +1,15 @@
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\bin\Debug\net6.0\Asessment 2 - Bruce's code.exe
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\bin\Debug\net6.0\Asessment 2 - Bruce's code.deps.json
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\bin\Debug\net6.0\Asessment 2 - Bruce's code.runtimeconfig.json
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\bin\Debug\net6.0\Asessment 2 - Bruce's code.dll
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\bin\Debug\net6.0\Asessment 2 - Bruce's code.pdb
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.csproj.AssemblyReference.cache
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.AssemblyInfoInputs.cache
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.AssemblyInfo.cs
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.csproj.CoreCompileInputs.cache
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.dll
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\refint\Asessment 2 - Bruce's code.dll
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.pdb
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\Asessment 2 - Bruce's code.genruntimeconfig.cache
+C:\Users\GGPC\source\repos\Asessment 2 - Bruce's code\obj\Debug\net6.0\ref\Asessment 2 - Bruce's code.dll

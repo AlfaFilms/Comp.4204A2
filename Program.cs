@@ -1,105 +1,217 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assessment2
+namespace ConsoleShop
 {
-    class Program
+    internal class Program
     {
-        public static void Main()
+        // Global class variables
+        public static int money = 1000;
+
+        //Welcome message, receives a user input and allows the user to progress to the menu
+        public static void WelcomeMessage()
+        { 
+            Console.WriteLine("Hello and Welcome to the Generic Clothes Store");
+        }
+
+        //Main Menu
+        public static void ShopFront()
         {
-            //function variables
-            int balance = 1000;
-            string user = "";
+            
+            Console.WriteLine("*********************************************************\n");
+            Console.WriteLine($"\tYour current shop balance is [${money}].\n");
+            Console.WriteLine("\tWomen's Clothing           - Press [1].");
+            Console.WriteLine("\tMen's Clothing             - Press [2].");
+            Console.WriteLine("\tChildren's Clothing        - Press [3].");
+            Console.WriteLine("\tAdd Funds to Shop Balance  - Press [4].");
+            Console.WriteLine("\tExit Application           - Press [x].\n");
+            Console.WriteLine("*********************************************************\n");
+            Console.WriteLine("\t↓↓↓↓ Enter Your Option ↓↓↓↓");
 
-            //displays welcome message
-            Console.WriteLine("*****************************************");
-            Console.WriteLine("Welcome to the clothing shop!");
-            Console.WriteLine("*****************************************\n");
-
-            //displays categories
-            Console.WriteLine("*****************************************");
-            Console.WriteLine("Women's Clothes press [1]");
-            Console.WriteLine("Men's Clothes press [2]");
-            Console.WriteLine("Children's Clothes press [3]");
-
-            //displays products for category 1
-            Console.WriteLine("Welcome to Women's Clothing!");
-            Console.WriteLine("Press [1] to buy a dress");
-            Console.WriteLine("Press [2] to buy a top");
-            Console.WriteLine("Press [3] to buy some beachwear");
-            Console.WriteLine("Press [4] to buy some lingerie");
-            Console.WriteLine("Press [5] to buy some activewear");
-
-            //displays products for category 1
-            Console.WriteLine("Welcome to Men's Clothing!");
-            Console.WriteLine("Press [1] to buy a t-shirt");
-            Console.WriteLine("Press [2] to buy a polo shirt");
-            Console.WriteLine("Press [3] to buy some jeans");
-            Console.WriteLine("Press [4] to buy some track pants");
-            Console.WriteLine("Press [5] to buy some shoes");
-
-            //displays products for category 1
-            Console.WriteLine("Welcome to Children's Clothing!");
-            Console.WriteLine("Press [1] to buy a baby onesie");
-            Console.WriteLine("Press [2] to buy a boy's t-shirt");
-            Console.WriteLine("Press [3] to buy a girl's t-shirt");
-            Console.WriteLine("Press [4] to buy boys pants");
-            Console.WriteLine("Press [5] to buy girls pants");
-
-            while (true)
+            Console.Write("\t");
+            switch (Console.ReadLine())
             {
-                //displays selection menu
-                Console.WriteLine("****************************");
-                Console.WriteLine("Show current balance [1]");
-                Console.WriteLine("Deposit funds [2]");
-                Console.WriteLine("Exit application [3]");
-
-                //allows user input for calculations
-                string userSelection = Console.ReadLine();
-                switch (Int32.Parse(userSelection))
-                {
-                    case 1: //allows the user to view current balance
-                        Console.WriteLine("Your current balance is: " + balance);
-                        break;
-
-                    case 2: //allows the user to deposit an amount in whole numbers
-                        Console.WriteLine("Enter deposit amount:");
-                        int deposit = Int32.Parse(Console.ReadLine());
-
-                        if (deposit < 1)
-                        {
-                            Console.WriteLine("You can only deposit whole numbers");
-                            break;
-                        }
-
-                        balance += deposit;
-                        break;
-
-                    case 3: //allows the user to withdraw an amount in whole numbers
-                        Console.WriteLine("Enter withdrawal amount:");
-                        int withdraw = Int32.Parse(Console.ReadLine());
-
-                        if (withdraw < 1)
-                        {
-                            Console.WriteLine("You can only withdraw whole numbers");
-                            break;
-                        }
-
-                        balance -= withdraw;
-                        break;
-
-                    case 4: //allows the user to exit the program
-                        Environment.Exit(0);
-                        break;
-                    //if the input is anything other than a whole number, the default statement is below
-                    default:
-                        Console.WriteLine("Wrong input try again");
-                        break;
-                }
+                case "1":
+                    CategoryOne();
+                    break;
+                case "2":
+                    CategoryTwo();
+                    break;
+                case "3":
+                    CategoryThree();
+                    break;
+                case "4":
+                    AddFunds();
+                    break;
+                case "x":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("\tYour chosen option in invalid, choose again\n");
+                    ShopFront();
+                    break;
             }
+
+        }
+
+        //First area of the shop, Women's Clothing
+        public static void CategoryOne()
+        {
+            Console.WriteLine("\tPress any button to continue.");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("\t*********** Women's Clothing ***********\n");
+            Console.WriteLine("\tBlue Dress ($70)           - Press 1 to purchase [1]");
+            Console.WriteLine("\tBlue Top ($50)             - Press 2 to purchase [2]");
+            Console.WriteLine("\tAll Swimwear Sets ($80)    - Press 1 to purchase [3]");
+            Console.WriteLine("\tAll Lingerie ($10)         - Press 1 to purchase [4]");
+            Console.WriteLine("\tReturn to Shop Front       - Press [5]\n");
+            Console.WriteLine("\tExit                       - Press [6]");
+
+            Console.Write("\t");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    money -= 70;
+                    Console.WriteLine($"\tYou have purchased Blue Dress for $70 your remaining shop funds is ${money}");
+                    CategoryOne();
+                    break;
+                case "2":
+                    money -= 50;
+                    Console.WriteLine($"\tYou have purchased Blue Top for $50 your remaining shop funds is ${money}");
+                    CategoryOne();
+                    break;
+                case "3":
+                    money -= 80;
+                    Console.WriteLine($"\tYou have purchased a Swimwear set for $80 your remaining shop funds is ${money}");
+                    CategoryOne();
+                    break;
+                case "4":
+                    money -= 100;
+                    Console.WriteLine($"\tYou have purchased a Lingerie set for $100 your remaining shop funds is ${money}");
+                    CategoryOne();
+                    break;
+                case "5":
+                    ShopFront();
+                    break;
+                default:
+                    Console.WriteLine("\tYour chosen option in invalid, choose again\n");
+                    CategoryOne();
+                    break;
+            }
+
+        }
+
+        //Second area of the shop, Men's Clothing
+        public static void CategoryTwo()
+        {
+            Console.WriteLine("\tPress any button to continue.");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("\t*********** Men's Clothing ***********\n");
+            Console.WriteLine("\tM1 ($70)           - Press 1 to purchase [1]");
+            Console.WriteLine("\tM2 ($50)             - Press [2] to purchase ");
+            Console.WriteLine("\tM3 ($80)    - Press 1 to purchase [3]");
+            Console.WriteLine("\tM4 ($10)         - Press 1 to purchase [4]");
+            Console.WriteLine("\tReturn to Shop Front       - Press [5]\n");
+            Console.WriteLine("\tExit                       - Press [6]");
+
+            Console.Write("\t");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    money -= 10;
+                    Console.WriteLine($"\tYou have purchased Blue Dress for $70 your remaining shop funds is ${money}");
+                    CategoryTwo();
+                    break;
+                case "2":
+                    money -= 5;
+                    Console.WriteLine($"\tYou have purchased Blue Top for $50 your remaining shop funds is ${money}");
+                    CategoryTwo();
+                    break;
+                case "3":
+                    money -= 5;
+                    Console.WriteLine($"\tYou have purchased All Swimwear Sets for $80 your remaining shop funds is ${money}");
+                    CategoryTwo();
+                    break;
+                case "4":
+                    money -= 10;
+                    Console.WriteLine($"\tYou have purchased All Lingerie for $100 your remaining shop funds is ${money}");
+                    CategoryTwo();
+                    break;
+                case "5":
+                    ShopFront();
+                    break;
+                default:
+                    Console.WriteLine("\tYour chosen option in invalid, choose again\n");
+                    CategoryTwo();
+                    break;
+            }
+        }
+
+        //Third area of the shop, Children's Clothing
+        public static void CategoryThree()
+        {
+            Console.WriteLine("\tPress any button to continue.");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("\t*********** Children's Clothing ***********\n");
+            Console.WriteLine("\tBlue Dress ($70)           - Press 1 to purchase [1]");
+            Console.WriteLine("\tBlue Top ($50)             - Press 2 to purchase [2]");
+            Console.WriteLine("\tAll Swimwear Sets ($80)    - Press 1 to purchase [3]");
+            Console.WriteLine("\tAll Lingerie ($10)         - Press 1 to purchase [4]");
+            Console.WriteLine("\tReturn to Shop Front       - Press [5]\n");
+            Console.WriteLine("\tExit                       - Press [6]");
+
+            Console.Write("\t");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    money -= 70;
+                    Console.WriteLine($"\tYou have purchased Blue Dress for $70 your remaining shop funds is ${money}");
+                    CategoryThree();
+                    break;
+                case "2":
+                    money -= 5;
+                    Console.WriteLine($"\tYou have purchased Blue Top for $50 your remaining shop funds is ${money}");
+                    CategoryThree();
+                    break;
+                case "3":
+                    money -= 5;
+                    Console.WriteLine($"\tYou have purchased All Swimwear Sets for $80 your remaining shop funds is ${money}");
+                    CategoryThree();
+                    break;
+                case "4":
+                    money -= 10;
+                    Console.WriteLine($"\tYou have purchased All Lingerie for $100 your remaining shop funds is ${money}");
+                    CategoryThree();
+                    break;
+                case "5":
+                    ShopFront();
+                    break;
+                default:
+                    Console.WriteLine("\tYour chosen option in invalid, choose again\n");
+                    CategoryThree();
+                    break;
+
+            }
+        }
+            //allow the user to add funds
+            public static void AddFunds()
+        {
+            Console.WriteLine("\tAdd Funds ↓↓↓↓");
+            money = int.Parse(Console.ReadLine()) + money;
+            Console.WriteLine($"\tShop Funds available is now {money}");
+            ShopFront();
+        }
+
+        static void Main(string[] args)
+        {
+            ShopFront();
         }
     }
 }
